@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace RMS_by_LCM_Scheduler
 {
-    public partial class Form1 : Form
+    public partial class TasksSchedulerForm : Form
     {
-        public Form1()
+        public TasksSchedulerForm()
         {
             InitializeComponent();
+        }
+
+        private void TasksScheduler_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace RMS_by_LCM_Scheduler
 {
-    partial class Form1
+    partial class TasksSchedulerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // TasksScheduler
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(506, 244);
+            this.Name = "TasksScheduler";
+            this.Text = "RMS by LCM Scheduler Tasks Scheduler";
+            this.Load += new System.EventHandler(this.TasksScheduler_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
