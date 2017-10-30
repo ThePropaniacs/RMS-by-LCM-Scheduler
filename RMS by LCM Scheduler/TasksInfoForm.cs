@@ -43,11 +43,6 @@ namespace RMS_by_LCM_Scheduler
             int nPeriod, nExecution;
             if (!String.IsNullOrWhiteSpace(txtTaskPeriod.Text) && !String.IsNullOrWhiteSpace(txtTaskExecution.Text) &&
                 int.TryParse(txtTaskPeriod.Text, out nPeriod) && int.TryParse(txtTaskExecution.Text, out nExecution)) ;
-            {
-                TasksSchedulerForm tasksSchedulerForm = new TasksSchedulerForm(nPeriod, nExecution);
-                tasksSchedulerForm.Show();
-                btnGo.Enabled = false;
-            }
             else
             {
                 MessageBox.Show("Please enter valid integers for the period and execution!");
