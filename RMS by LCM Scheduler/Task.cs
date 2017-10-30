@@ -22,7 +22,7 @@ namespace RMS_by_LCM_Scheduler
 
         public Task(double number, double period, double execution)
         {
-            this.Number = Number;
+            this.Number = number;
             this.Period = period;
             this.Execution = execution;
             this.Utilization = Math.Round((execution / period), 2);
