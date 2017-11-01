@@ -55,12 +55,6 @@
     <Compile Include="Priority.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskSetInfo.cs" />
-    <Compile Include="TasksForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TasksForm.Designer.cs">
-      <DependentUpon>TasksForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TasksInfoForm.cs">
@@ -81,9 +75,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TasksForm.resx">
-      <DependentUpon>TasksForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TasksInfoForm.resx">
       <DependentUpon>TasksInfoForm.cs</DependentUpon>
     </EmbeddedResource>

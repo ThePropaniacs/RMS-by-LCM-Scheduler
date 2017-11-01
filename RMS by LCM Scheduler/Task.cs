@@ -20,7 +20,12 @@ namespace RMS_by_LCM_Scheduler
 
         public double[] Deadlines { get; set; }
 
-        public Task(double number, double period, double execution)
+        public Task()
+        {
+
+        }
+
+        public void SetTaskInfo(double number, double period, double execution)
         {
             this.Number = number;
             this.Period = period;
@@ -31,7 +36,7 @@ namespace RMS_by_LCM_Scheduler
 
         public void FindDeadlines (double LCM)
         {
-            this.Deadlines = new double[Convert.ToInt32(LCM) + 1];
+            this.Deadlines = new double[Convert.ToInt64(LCM) + 1];
             Methods methods = new Methods();
             for (int i = 0; i <= LCM; i++)
             {
