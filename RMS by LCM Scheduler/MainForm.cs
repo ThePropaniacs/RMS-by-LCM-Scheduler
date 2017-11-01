@@ -155,6 +155,8 @@ namespace RMS_by_LCM_Scheduler
                 txtFeasible.Text = "Utilization > Guarnteed Level and not Overloaded, test up to LCM.";
             }
 
+            tasksetinfo.FindPriority();
+
             cmdTest.Enabled = false;
         }
     }
