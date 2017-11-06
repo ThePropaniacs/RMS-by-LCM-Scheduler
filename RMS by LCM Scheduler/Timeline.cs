@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace RMS_by_LCM_Scheduler
 {
-    class Timeline
+    public class Timeline
     {
         public Interval[] Intervals { get; set; }
 
-        public int Length { get; set; }
+        public double Length { get; set; }
 
-        public Timeline(int n)
+        public Timeline()
+        {
+
+        }
+
+        public Timeline(double n)
         {
             Length = n;
-            this.Intervals = new Interval[Length];
+            this.Intervals = new Interval[Convert.ToInt64(Length)];
             for (int i = 0; i < Length; i++)
             {
                 this.Intervals[i] = new Interval(i);

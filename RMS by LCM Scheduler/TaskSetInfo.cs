@@ -26,6 +26,8 @@ namespace RMS_by_LCM_Scheduler
 
         public int Count { get; set; }
 
+        public Timeline Timeline { get; set; }
+
         public TaskSetInfo(double numtasks)
         {
             this.NumTasks = numtasks;
@@ -101,6 +103,11 @@ namespace RMS_by_LCM_Scheduler
         {
             Comparison<Task> comparison = (x, y) => x.Period.CompareTo(y.Period);
             Array.Sort(this.Tasks, delegate (Task x, Task y) { return x.Period.CompareTo(y.Period); });
+        }
+
+        public void BuildTimeline()
+        {
+            Timeline = new Timeline(PeriodLCM);
         }
     }
 }

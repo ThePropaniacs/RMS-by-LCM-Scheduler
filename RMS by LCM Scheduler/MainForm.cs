@@ -116,13 +116,9 @@ namespace RMS_by_LCM_Scheduler
 
         private void cmdTest_Click(object sender, EventArgs e)
         {
+            Methods methods = new Methods();
             tasksetinfo.FindTotalUtilization();
             tasksetinfo.FindLCM();
-            //Must change way Deadlines are calc. to prevent overflow
-            //for (int i = 0; i < tasksetinfo.NumTasks; i++)
-            //{
-                //tasksetinfo.Tasks[i].FindDeadlines(tasksetinfo.PeriodLCM);
-            //}
 
             txtTotalUtilization.Text = tasksetinfo.TotalUtilization.ToString();
 
@@ -152,10 +148,25 @@ namespace RMS_by_LCM_Scheduler
 
             if (tasksetinfo.Overload == false && tasksetinfo.Guaranteed == false)
             {
-                txtFeasible.Text = "Utilization > Guarnteed Level and not Overloaded, test up to LCM.";
+                tasksetinfo.FindPriority();
+                tasksetinfo.BuildTimeline();
+                if (methods.RMS(tasksetinfo) == false)
+                {
+                    for (int i = 0; i < tasksetinfo.Timeline.Length; i ++)
+                    {
+                        if (tasksetinfo.Timeline.Intervals[i].Missed == true)
+                        {
+                            txtFeasible.Text = "Not feasible, Task " + tasksetinfo.Timeline.Intervals[i].TaskNumber +
+                                " missed its deadline at " + tasksetinfo.Timeline.Intervals[i].Time;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    txtFeasible.Text = "Feasible by RMS, verified by testing up to LCM of Periods of Tasks";
+                }
             }
-
-            tasksetinfo.FindPriority();
 
             cmdTest.Enabled = false;
         }

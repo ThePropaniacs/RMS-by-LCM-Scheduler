@@ -56,7 +56,7 @@
             this.cmdGo.Location = new System.Drawing.Point(346, 247);
             this.cmdGo.Name = "cmdGo";
             this.cmdGo.Size = new System.Drawing.Size(100, 41);
-            this.cmdGo.TabIndex = 0;
+            this.cmdGo.TabIndex = 3;
             this.cmdGo.Text = "GO";
             this.cmdGo.UseVisualStyleBackColor = true;
             this.cmdGo.Click += new System.EventHandler(this.cmdGo_Click);
@@ -66,7 +66,7 @@
             this.cmdExit.Location = new System.Drawing.Point(346, 318);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(100, 41);
-            this.cmdExit.TabIndex = 1;
+            this.cmdExit.TabIndex = 6;
             this.cmdExit.Text = "EXIT";
             this.cmdExit.UseVisualStyleBackColor = true;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
@@ -78,7 +78,7 @@
             this.lblTitle.Location = new System.Drawing.Point(234, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(356, 37);
-            this.lblTitle.TabIndex = 2;
+            this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "RMS by LCM Scheduler";
             // 
             // txtNumTasks
@@ -86,7 +86,7 @@
             this.txtNumTasks.Location = new System.Drawing.Point(13, 111);
             this.txtNumTasks.Name = "txtNumTasks";
             this.txtNumTasks.Size = new System.Drawing.Size(100, 26);
-            this.txtNumTasks.TabIndex = 3;
+            this.txtNumTasks.TabIndex = 1;
             this.txtNumTasks.Validating += new System.ComponentModel.CancelEventHandler(this.txtNumTasks_Validating);
             // 
             // lblNumTasks
@@ -105,7 +105,7 @@
             this.cmdRandom.Location = new System.Drawing.Point(230, 247);
             this.cmdRandom.Name = "cmdRandom";
             this.cmdRandom.Size = new System.Drawing.Size(100, 41);
-            this.cmdRandom.TabIndex = 20;
+            this.cmdRandom.TabIndex = 2;
             this.cmdRandom.Text = "RANDOM";
             this.cmdRandom.UseVisualStyleBackColor = true;
             this.cmdRandom.Click += new System.EventHandler(this.cmdRandom_Click);
@@ -129,6 +129,7 @@
             this.txtTotalUtilization.ReadOnly = true;
             this.txtTotalUtilization.Size = new System.Drawing.Size(139, 26);
             this.txtTotalUtilization.TabIndex = 30;
+            this.txtTotalUtilization.TabStop = false;
             // 
             // lblOverloaded
             // 
@@ -149,6 +150,7 @@
             this.txtOverloaded.ReadOnly = true;
             this.txtOverloaded.Size = new System.Drawing.Size(116, 26);
             this.txtOverloaded.TabIndex = 31;
+            this.txtOverloaded.TabStop = false;
             // 
             // lblGuaranteedLevel
             // 
@@ -169,6 +171,7 @@
             this.txtGuaranteedLevel.ReadOnly = true;
             this.txtGuaranteedLevel.Size = new System.Drawing.Size(169, 26);
             this.txtGuaranteedLevel.TabIndex = 33;
+            this.txtGuaranteedLevel.TabStop = false;
             // 
             // lblGuaranteed
             // 
@@ -189,13 +192,14 @@
             this.txtGuaranteed.ReadOnly = true;
             this.txtGuaranteed.Size = new System.Drawing.Size(116, 26);
             this.txtGuaranteed.TabIndex = 35;
+            this.txtGuaranteed.TabStop = false;
             // 
             // cmdClear
             // 
             this.cmdClear.Location = new System.Drawing.Point(574, 247);
             this.cmdClear.Name = "cmdClear";
             this.cmdClear.Size = new System.Drawing.Size(100, 41);
-            this.cmdClear.TabIndex = 37;
+            this.cmdClear.TabIndex = 5;
             this.cmdClear.Text = "CLEAR";
             this.cmdClear.UseVisualStyleBackColor = true;
             this.cmdClear.Click += new System.EventHandler(this.cmdClear_Click);
@@ -219,6 +223,7 @@
             this.txtFeasible.ReadOnly = true;
             this.txtFeasible.Size = new System.Drawing.Size(830, 26);
             this.txtFeasible.TabIndex = 38;
+            this.txtFeasible.TabStop = false;
             // 
             // lblLCM
             // 
@@ -239,6 +244,7 @@
             this.txtLCM.ReadOnly = true;
             this.txtLCM.Size = new System.Drawing.Size(116, 26);
             this.txtLCM.TabIndex = 40;
+            this.txtLCM.TabStop = false;
             // 
             // cmdTest
             // 
@@ -246,7 +252,7 @@
             this.cmdTest.Location = new System.Drawing.Point(461, 247);
             this.cmdTest.Name = "cmdTest";
             this.cmdTest.Size = new System.Drawing.Size(100, 41);
-            this.cmdTest.TabIndex = 42;
+            this.cmdTest.TabIndex = 4;
             this.cmdTest.Text = "TEST";
             this.cmdTest.UseVisualStyleBackColor = true;
             this.cmdTest.Click += new System.EventHandler(this.cmdTest_Click);

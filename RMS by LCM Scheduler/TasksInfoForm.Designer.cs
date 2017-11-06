@@ -45,7 +45,7 @@
             this.txtPeriod.Location = new System.Drawing.Point(66, 99);
             this.txtPeriod.Name = "txtPeriod";
             this.txtPeriod.Size = new System.Drawing.Size(100, 26);
-            this.txtPeriod.TabIndex = 0;
+            this.txtPeriod.TabIndex = 1;
             this.txtPeriod.Validating += new System.ComponentModel.CancelEventHandler(this.txtPeriod_Validating);
             // 
             // txtExecution
@@ -53,7 +53,7 @@
             this.txtExecution.Location = new System.Drawing.Point(176, 99);
             this.txtExecution.Name = "txtExecution";
             this.txtExecution.Size = new System.Drawing.Size(100, 26);
-            this.txtExecution.TabIndex = 1;
+            this.txtExecution.TabIndex = 2;
             this.txtExecution.Validating += new System.ComponentModel.CancelEventHandler(this.txtExecution_Validating);
             // 
             // lblPeriod
@@ -92,7 +92,7 @@
             this.cmdRandom.Location = new System.Drawing.Point(66, 148);
             this.cmdRandom.Name = "cmdRandom";
             this.cmdRandom.Size = new System.Drawing.Size(100, 52);
-            this.cmdRandom.TabIndex = 5;
+            this.cmdRandom.TabIndex = 3;
             this.cmdRandom.Text = "RANDOM";
             this.cmdRandom.UseVisualStyleBackColor = true;
             this.cmdRandom.Click += new System.EventHandler(this.cmdRandom_Click);
@@ -115,6 +115,7 @@
             this.txtUtilization.ReadOnly = true;
             this.txtUtilization.Size = new System.Drawing.Size(139, 26);
             this.txtUtilization.TabIndex = 32;
+            this.txtUtilization.TabStop = false;
             // 
             // lblUtilization
             // 
@@ -132,7 +133,7 @@
             this.cmdClear.Location = new System.Drawing.Point(288, 148);
             this.cmdClear.Name = "cmdClear";
             this.cmdClear.Size = new System.Drawing.Size(139, 52);
-            this.cmdClear.TabIndex = 33;
+            this.cmdClear.TabIndex = 5;
             this.cmdClear.Text = "CLEAR";
             this.cmdClear.UseVisualStyleBackColor = true;
             this.cmdClear.Click += new System.EventHandler(this.cmdClear_Click);

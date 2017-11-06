@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace RMS_by_LCM_Scheduler
 {
-    class Interval
+    public class Interval
     {
-        public int Time { get; set; }
+        public double Time { get; set; }
 
-        public double Completed { get; set; }
+        public bool Completed { get; set; }
 
-        public double Missed { get; set; }
+        public bool Missed { get; set; }
 
         public double TaskNumber { get; set; }
 
-        public Interval(int n)
+        public bool Occupied { get; set; }
+
+        public Interval(double n)
         {
-            Time = n;
+            Time = n + 1;
         }
     }
 }

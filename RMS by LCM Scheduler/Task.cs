@@ -18,7 +18,7 @@ namespace RMS_by_LCM_Scheduler
 
         public bool Completed { get; set; }
 
-        public double[] Deadlines { get; set; }
+        public bool[] Deadlines { get; set; }
 
         public Task()
         {
@@ -31,22 +31,21 @@ namespace RMS_by_LCM_Scheduler
             this.Period = period;
             this.Execution = execution;
             this.Utilization = Math.Round((execution / period), 2);
-            this.Completed = false;
         }
 
         public void FindDeadlines (double LCM)
         {
-            this.Deadlines = new double[Convert.ToInt64(LCM) + 1];
+            this.Deadlines = new bool[Convert.ToInt64(LCM)];
             Methods methods = new Methods();
-            for (int i = 0; i <= LCM; i++)
+            for (int i = 0; i < LCM; i++)
             {
-                if (methods.IsMultiple(i, this.Period))
+                if (methods.IsMultiple(i + 1, this.Period))
                 {
-                    this.Deadlines[i] = 1;
+                    this.Deadlines[i] = true;
                 }
                 else
                 {
-                    this.Deadlines[i] = 0;
+                    this.Deadlines[i] = false;
                 }
             }
         }
