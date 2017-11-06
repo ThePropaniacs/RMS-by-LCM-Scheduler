@@ -14,6 +14,8 @@ namespace RMS_by_LCM_Scheduler
 
         public double Missed { get; set; }
 
+        public double TaskNumber { get; set; }
+
         public Interval(int n)
         {
             Time = n;
