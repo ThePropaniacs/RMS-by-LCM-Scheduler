@@ -20,7 +20,7 @@ namespace RMS_by_LCM_Scheduler
 
         public Interval(double n)
         {
-            Time = n + 1;
+            Time = n;
         }
     }
 }

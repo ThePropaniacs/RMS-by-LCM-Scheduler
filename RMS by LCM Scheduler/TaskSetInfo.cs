@@ -107,7 +107,7 @@ namespace RMS_by_LCM_Scheduler
 
         public void BuildTimeline()
         {
-            Timeline = new Timeline(PeriodLCM);
+            Timeline = new Timeline(PeriodLCM + 1);
         }
     }
 }

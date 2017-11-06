@@ -35,11 +35,11 @@ namespace RMS_by_LCM_Scheduler
 
         public void FindDeadlines (double LCM)
         {
-            this.Deadlines = new bool[Convert.ToInt64(LCM)];
+            this.Deadlines = new bool[Convert.ToInt64(LCM) + 1];
             Methods methods = new Methods();
-            for (int i = 0; i < LCM; i++)
+            for (int i = 0; i <= LCM; i++)
             {
-                if (methods.IsMultiple(i + 1, this.Period))
+                if (methods.IsMultiple(i, this.Period))
                 {
                     this.Deadlines[i] = true;
                 }
