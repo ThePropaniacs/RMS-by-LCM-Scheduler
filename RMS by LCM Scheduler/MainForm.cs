@@ -157,7 +157,7 @@ namespace RMS_by_LCM_Scheduler
                         if (tasksetinfo.Timeline.Intervals[i].Missed == true)
                         {
                             txtFeasible.Text = "Not feasible, Task " + tasksetinfo.Timeline.Intervals[i].TaskNumber +
-                                " missed its deadline at " + tasksetinfo.Timeline.Intervals[i].Time;
+                                " missed its deadline at Time " + tasksetinfo.Timeline.Intervals[i].Time + ".";
                             break;
                         }
                     }
