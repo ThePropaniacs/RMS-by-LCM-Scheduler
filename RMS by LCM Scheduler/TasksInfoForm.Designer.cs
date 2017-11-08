@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TasksInfoForm));
             this.txtPeriod = new System.Windows.Forms.TextBox();
             this.txtExecution = new System.Windows.Forms.TextBox();
             this.lblPeriod = new System.Windows.Forms.Label();
@@ -153,6 +154,7 @@
             this.Controls.Add(this.lblPeriod);
             this.Controls.Add(this.txtExecution);
             this.Controls.Add(this.txtPeriod);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TasksInfoForm";
             this.Text = "RMS by LCM Scheduling Tasks Info";
             this.Load += new System.EventHandler(this.TasksInfoForm_Load);

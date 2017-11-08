@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.cmdGo = new System.Windows.Forms.Button();
             this.cmdExit = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -282,6 +283,7 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.cmdGo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "RMS by LCM Scheduler Main";
             this.ResumeLayout(false);
