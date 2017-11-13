@@ -191,5 +191,102 @@ namespace RMS_by_LCM_Scheduler
             tasksetinfo.Feasible = true;
             return true;
         }
+
+        public bool EDF(TaskSetInfo tasksetinfo)
+        {
+            Executing[] executing = new Executing[Convert.ToInt64(tasksetinfo.NumTasks)];
+            for (int i = 0; i < tasksetinfo.NumTasks; i++)
+            {
+                //Create Executing for each task to count execution times to track completion of task
+                executing[i] = new Executing(tasksetinfo.Tasks[i].Number, tasksetinfo.Tasks[i].Execution);
+            }
+
+            //Begin iterating throughout the Timeline
+            for (int i = 0; i < tasksetinfo.Timeline.Length; i++)
+            {
+                //Check each task in order of priority for deadline and completion status to determine action
+                for (int n = 0; n < tasksetinfo.NumTasks; n++)
+                {
+                    //If it is the task's deadline then check completion status
+                    if (tasksetinfo.Tasks[n].Deadlines[i] == true)
+                    {
+                        //If task has not been completed, then mark as missed, not feasible, and return false
+                        if (tasksetinfo.Tasks[n].Completed == false)
+                        {
+                            tasksetinfo.Timeline.Intervals[i].Missed = true;
+                            tasksetinfo.Timeline.Intervals[i].TaskNumber = tasksetinfo.Tasks[n].Number;
+                            tasksetinfo.Feasible = false;
+                            return false;
+                        }
+                        //If task has been completed, then task is requested again
+                        else if (tasksetinfo.Tasks[n].Completed == true)
+                        {
+                            //Reset task's completion status and Execute for the interval if interval not occupied, 
+                            //mark the interval as occupied and executing for that task
+                            if (tasksetinfo.Timeline.Intervals[i].Occupied == false)
+                            {
+                                tasksetinfo.Tasks[n].Completed = false;
+                                executing[n].Count++;
+                                tasksetinfo.Timeline.Intervals[i].TaskNumber = tasksetinfo.Tasks[n].Number;
+                                //If this execution completes the task then mark interval as completion and task as completed
+                                //and reset the execution for the task
+                                if (executing[n].Count == executing[n].Execution)
+                                {
+                                    tasksetinfo.Timeline.Intervals[i].Completed = true;
+                                    tasksetinfo.Tasks[n].Completed = true;
+                                    executing[n].Count = 0;
+                                }
+                                tasksetinfo.Timeline.Intervals[i].Occupied = true;
+                            }
+                            //If interval occupied then cannot execute
+                            else
+                            {
+                                //No action
+                            }
+                        }
+                    }
+                    //If it is not the task's deadline then check completion status
+                    else
+                    {
+                        //If task has not been completed, then will attempt to execute
+                        if (tasksetinfo.Tasks[n].Completed == false)
+                        {
+                            //If interval is not occupied then Execute for the interval and
+                            //mark the interval as occupied and executing for that task
+                            if (tasksetinfo.Timeline.Intervals[i].Occupied == false)
+                            {
+                                executing[n].Count++;
+                                tasksetinfo.Timeline.Intervals[i].TaskNumber = tasksetinfo.Tasks[n].Number;
+                                //If this execution completes the task then mark interval as completion and task as completed 
+                                //and reset the execution count for the task
+                                if (executing[n].Count == executing[n].Execution)
+                                {
+                                    tasksetinfo.Timeline.Intervals[i].Completed = true;
+                                    tasksetinfo.Tasks[n].Completed = true;
+                                    executing[n].Count = 0;
+                                }
+                                tasksetinfo.Timeline.Intervals[i].Occupied = true;
+                            }
+                            //If interval occupied then cannot execute
+                            else
+                            {
+                                //No action
+                            }
+                        }
+                        //If the task has been completed then no action is required for the task
+                        else if (tasksetinfo.Tasks[n].Completed == true)
+                        {
+                            //No action required
+                        }
+                    }
+                }
+                //Re-calculate priority from next interval based on deadlines
+                tasksetinfo.FindPriorityEDF(i + 1);
+            }
+
+            //If no task missed its deadline then mark as feasible and return true
+            tasksetinfo.Feasible = true;
+            return true;
+        }
     }
 }

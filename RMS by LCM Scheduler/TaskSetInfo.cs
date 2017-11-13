@@ -102,10 +102,20 @@ namespace RMS_by_LCM_Scheduler
             }
         }
 
-        public void FindPriority()
+        public void FindPriorityLCM()
         {
             Comparison<Task> comparison = (x, y) => x.Period.CompareTo(y.Period);
             Array.Sort(this.Tasks, delegate (Task x, Task y) { return x.Period.CompareTo(y.Period); });
+        }
+
+        public void FindPriorityEDF(int current)
+        {
+            foreach (var task in this.Tasks)
+            {
+                task.FindNextDeadline(current, this.Timeline.Length);
+            }
+            Comparison<Task> comparison = (x, y) => x.NextDeadline.CompareTo(y.NextDeadline);
+            Array.Sort(this.Tasks, delegate (Task x, Task y) { return x.NextDeadline.CompareTo(y.NextDeadline); });
         }
 
         public void BuildTimeline()

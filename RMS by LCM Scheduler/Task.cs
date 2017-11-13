@@ -20,6 +20,8 @@ namespace RMS_by_LCM_Scheduler
 
         public bool[] Deadlines { get; set; }
 
+        public int NextDeadline { get; set; }
+
         public Task()
         {
 
@@ -47,6 +49,19 @@ namespace RMS_by_LCM_Scheduler
                 {
                     this.Deadlines[i] = false;
                 }
+            }
+        }
+
+        public void FindNextDeadline(int current, double end)
+        {
+            while (current < end)
+            {
+                if (this.Deadlines[current] == true)
+                {
+                    this.NextDeadline = current;
+                    break;
+                }
+                current++;
             }
         }
     }

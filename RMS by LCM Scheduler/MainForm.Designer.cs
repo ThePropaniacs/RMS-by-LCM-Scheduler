@@ -48,13 +48,14 @@
             this.txtFeasible = new System.Windows.Forms.TextBox();
             this.lblLCM = new System.Windows.Forms.Label();
             this.txtLCM = new System.Windows.Forms.TextBox();
-            this.cmdTest = new System.Windows.Forms.Button();
+            this.cmdTestRMS = new System.Windows.Forms.Button();
+            this.cmdTestEDF = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdGo
             // 
             this.cmdGo.Enabled = false;
-            this.cmdGo.Location = new System.Drawing.Point(346, 247);
+            this.cmdGo.Location = new System.Drawing.Point(370, 247);
             this.cmdGo.Name = "cmdGo";
             this.cmdGo.Size = new System.Drawing.Size(100, 41);
             this.cmdGo.TabIndex = 3;
@@ -64,10 +65,10 @@
             // 
             // cmdExit
             // 
-            this.cmdExit.Location = new System.Drawing.Point(346, 318);
+            this.cmdExit.Location = new System.Drawing.Point(372, 318);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(100, 41);
-            this.cmdExit.TabIndex = 6;
+            this.cmdExit.TabIndex = 7;
             this.cmdExit.Text = "EXIT";
             this.cmdExit.UseVisualStyleBackColor = true;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
@@ -76,11 +77,11 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(234, 9);
+            this.lblTitle.Location = new System.Drawing.Point(365, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(356, 37);
+            this.lblTitle.Size = new System.Drawing.Size(236, 37);
             this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "RMS by LCM Scheduler";
+            this.lblTitle.Text = "LCM Scheduler";
             // 
             // txtNumTasks
             // 
@@ -103,7 +104,7 @@
             // 
             // cmdRandom
             // 
-            this.cmdRandom.Location = new System.Drawing.Point(230, 247);
+            this.cmdRandom.Location = new System.Drawing.Point(254, 247);
             this.cmdRandom.Name = "cmdRandom";
             this.cmdRandom.Size = new System.Drawing.Size(100, 41);
             this.cmdRandom.TabIndex = 2;
@@ -159,9 +160,9 @@
             this.lblGuaranteedLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGuaranteedLevel.Location = new System.Drawing.Point(409, 83);
             this.lblGuaranteedLevel.Name = "lblGuaranteedLevel";
-            this.lblGuaranteedLevel.Size = new System.Drawing.Size(167, 25);
+            this.lblGuaranteedLevel.Size = new System.Drawing.Size(230, 25);
             this.lblGuaranteedLevel.TabIndex = 34;
-            this.lblGuaranteedLevel.Text = "Guaranteed Level";
+            this.lblGuaranteedLevel.Text = "Guaranteed Level (RMS)";
             this.lblGuaranteedLevel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtGuaranteedLevel
@@ -170,7 +171,7 @@
             this.txtGuaranteedLevel.Location = new System.Drawing.Point(407, 111);
             this.txtGuaranteedLevel.Name = "txtGuaranteedLevel";
             this.txtGuaranteedLevel.ReadOnly = true;
-            this.txtGuaranteedLevel.Size = new System.Drawing.Size(169, 26);
+            this.txtGuaranteedLevel.Size = new System.Drawing.Size(232, 26);
             this.txtGuaranteedLevel.TabIndex = 33;
             this.txtGuaranteedLevel.TabStop = false;
             // 
@@ -178,29 +179,29 @@
             // 
             this.lblGuaranteed.AutoSize = true;
             this.lblGuaranteed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuaranteed.Location = new System.Drawing.Point(595, 83);
+            this.lblGuaranteed.Location = new System.Drawing.Point(657, 83);
             this.lblGuaranteed.Name = "lblGuaranteed";
-            this.lblGuaranteed.Size = new System.Drawing.Size(115, 25);
+            this.lblGuaranteed.Size = new System.Drawing.Size(178, 25);
             this.lblGuaranteed.TabIndex = 36;
-            this.lblGuaranteed.Text = "Guaranteed";
+            this.lblGuaranteed.Text = "Guaranteed (RMS)";
             this.lblGuaranteed.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtGuaranteed
             // 
             this.txtGuaranteed.BackColor = System.Drawing.SystemColors.Control;
-            this.txtGuaranteed.Location = new System.Drawing.Point(593, 111);
+            this.txtGuaranteed.Location = new System.Drawing.Point(655, 111);
             this.txtGuaranteed.Name = "txtGuaranteed";
             this.txtGuaranteed.ReadOnly = true;
-            this.txtGuaranteed.Size = new System.Drawing.Size(116, 26);
+            this.txtGuaranteed.Size = new System.Drawing.Size(180, 26);
             this.txtGuaranteed.TabIndex = 35;
             this.txtGuaranteed.TabStop = false;
             // 
             // cmdClear
             // 
-            this.cmdClear.Location = new System.Drawing.Point(574, 247);
+            this.cmdClear.Location = new System.Drawing.Point(485, 318);
             this.cmdClear.Name = "cmdClear";
-            this.cmdClear.Size = new System.Drawing.Size(100, 41);
-            this.cmdClear.TabIndex = 5;
+            this.cmdClear.Size = new System.Drawing.Size(116, 41);
+            this.cmdClear.TabIndex = 6;
             this.cmdClear.Text = "CLEAR";
             this.cmdClear.UseVisualStyleBackColor = true;
             this.cmdClear.Click += new System.EventHandler(this.cmdClear_Click);
@@ -209,7 +210,7 @@
             // 
             this.lblFeasible.AutoSize = true;
             this.lblFeasible.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFeasible.Location = new System.Drawing.Point(348, 154);
+            this.lblFeasible.Location = new System.Drawing.Point(431, 154);
             this.lblFeasible.Name = "lblFeasible";
             this.lblFeasible.Size = new System.Drawing.Size(98, 25);
             this.lblFeasible.TabIndex = 39;
@@ -222,7 +223,7 @@
             this.txtFeasible.Location = new System.Drawing.Point(13, 182);
             this.txtFeasible.Name = "txtFeasible";
             this.txtFeasible.ReadOnly = true;
-            this.txtFeasible.Size = new System.Drawing.Size(830, 26);
+            this.txtFeasible.Size = new System.Drawing.Size(957, 26);
             this.txtFeasible.TabIndex = 38;
             this.txtFeasible.TabStop = false;
             // 
@@ -230,7 +231,7 @@
             // 
             this.lblLCM.AutoSize = true;
             this.lblLCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLCM.Location = new System.Drawing.Point(757, 81);
+            this.lblLCM.Location = new System.Drawing.Point(888, 81);
             this.lblLCM.Name = "lblLCM";
             this.lblLCM.Size = new System.Drawing.Size(55, 25);
             this.lblLCM.TabIndex = 41;
@@ -240,30 +241,42 @@
             // txtLCM
             // 
             this.txtLCM.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLCM.Location = new System.Drawing.Point(727, 109);
+            this.txtLCM.Location = new System.Drawing.Point(854, 111);
             this.txtLCM.Name = "txtLCM";
             this.txtLCM.ReadOnly = true;
             this.txtLCM.Size = new System.Drawing.Size(116, 26);
             this.txtLCM.TabIndex = 40;
             this.txtLCM.TabStop = false;
             // 
-            // cmdTest
+            // cmdTestRMS
             // 
-            this.cmdTest.Enabled = false;
-            this.cmdTest.Location = new System.Drawing.Point(461, 247);
-            this.cmdTest.Name = "cmdTest";
-            this.cmdTest.Size = new System.Drawing.Size(100, 41);
-            this.cmdTest.TabIndex = 4;
-            this.cmdTest.Text = "TEST";
-            this.cmdTest.UseVisualStyleBackColor = true;
-            this.cmdTest.Click += new System.EventHandler(this.cmdTest_Click);
+            this.cmdTestRMS.Enabled = false;
+            this.cmdTestRMS.Location = new System.Drawing.Point(485, 247);
+            this.cmdTestRMS.Name = "cmdTestRMS";
+            this.cmdTestRMS.Size = new System.Drawing.Size(116, 41);
+            this.cmdTestRMS.TabIndex = 4;
+            this.cmdTestRMS.Text = "TEST RMS";
+            this.cmdTestRMS.UseVisualStyleBackColor = true;
+            this.cmdTestRMS.Click += new System.EventHandler(this.cmdTestRMS_Click);
+            // 
+            // cmdTestEDF
+            // 
+            this.cmdTestEDF.Enabled = false;
+            this.cmdTestEDF.Location = new System.Drawing.Point(614, 247);
+            this.cmdTestEDF.Name = "cmdTestEDF";
+            this.cmdTestEDF.Size = new System.Drawing.Size(100, 41);
+            this.cmdTestEDF.TabIndex = 5;
+            this.cmdTestEDF.Text = "TEST EDF";
+            this.cmdTestEDF.UseVisualStyleBackColor = true;
+            this.cmdTestEDF.Click += new System.EventHandler(this.cmdTestEDF_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 383);
-            this.Controls.Add(this.cmdTest);
+            this.ClientSize = new System.Drawing.Size(990, 383);
+            this.Controls.Add(this.cmdTestEDF);
+            this.Controls.Add(this.cmdTestRMS);
             this.Controls.Add(this.lblLCM);
             this.Controls.Add(this.txtLCM);
             this.Controls.Add(this.lblFeasible);
@@ -285,7 +298,7 @@
             this.Controls.Add(this.cmdGo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "RMS by LCM Scheduler Main";
+            this.Text = "LCM Scheduler Main";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,6 +325,7 @@
         private System.Windows.Forms.TextBox txtFeasible;
         private System.Windows.Forms.Label lblLCM;
         private System.Windows.Forms.TextBox txtLCM;
-        private System.Windows.Forms.Button cmdTest;
+        private System.Windows.Forms.Button cmdTestRMS;
+        private System.Windows.Forms.Button cmdTestEDF;
     }
 }

@@ -61,7 +61,8 @@ namespace RMS_by_LCM_Scheduler
                 };
             }
 
-            cmdTest.Enabled = true;
+            cmdTestRMS.Enabled = true;
+            cmdTestEDF.Enabled = true;
 
             //while (tasksetinfo.Count < tasksetinfo.NumTasks)
             //{
@@ -93,7 +94,8 @@ namespace RMS_by_LCM_Scheduler
 
             cmdRandom.Enabled = true;
             cmdGo.Enabled = false;
-            cmdTest.Enabled = false;
+            cmdTestRMS.Enabled = false;
+            cmdTestEDF.Enabled = false;
             txtNumTasks.ReadOnly = false;
         }
 
@@ -124,10 +126,10 @@ namespace RMS_by_LCM_Scheduler
 
         public void Enable_cmdTest()
         {
-            cmdTest.Enabled = true;
+            cmdTestRMS.Enabled = true;
         }
 
-        private void cmdTest_Click(object sender, EventArgs e)
+        private void cmdTestRMS_Click(object sender, EventArgs e)
         {
             Methods methods = new Methods();
             tasksetinfo.FindTotalUtilization();
@@ -138,7 +140,7 @@ namespace RMS_by_LCM_Scheduler
             if (tasksetinfo.Overload == true)
             {
                 txtOverloaded.Text = "Yes";
-                txtFeasible.Text = "No, overloaded.";
+                txtFeasible.Text = "Not feasible by RMS, overloaded.";
             }
             else
             {
@@ -148,7 +150,7 @@ namespace RMS_by_LCM_Scheduler
             if (tasksetinfo.Guaranteed == true)
             {
                 txtGuaranteed.Text = "Yes";
-                txtFeasible.Text = "Yes, guaranteed by LCM.";
+                txtFeasible.Text = "Feasible by RMS, guaranteed by LCM.";
             }
             else
             {
@@ -161,7 +163,7 @@ namespace RMS_by_LCM_Scheduler
 
             if (tasksetinfo.Overload == false && tasksetinfo.Guaranteed == false)
             {
-                tasksetinfo.FindPriority();
+                tasksetinfo.FindPriorityLCM();
                 tasksetinfo.BuildTimeline();
                 if (methods.RMS(tasksetinfo) == false)
                 {
@@ -169,7 +171,7 @@ namespace RMS_by_LCM_Scheduler
                     {
                         if (tasksetinfo.Timeline.Intervals[i].Missed == true)
                         {
-                            txtFeasible.Text = "Not feasible, Task " + tasksetinfo.Timeline.Intervals[i].TaskNumber +
+                            txtFeasible.Text = "Not feasible by RMS, Task " + tasksetinfo.Timeline.Intervals[i].TaskNumber +
                                 " missed its deadline at Time " + tasksetinfo.Timeline.Intervals[i].Time + ".";
                             break;
                         }
@@ -181,7 +183,67 @@ namespace RMS_by_LCM_Scheduler
                 }
             }
 
-            cmdTest.Enabled = false;
+            cmdTestRMS.Enabled = false;
+            cmdTestEDF.Enabled = true;
+        }
+
+        private void cmdTestEDF_Click(object sender, EventArgs e)
+        {
+            Methods methods = new Methods();
+            tasksetinfo.FindTotalUtilization();
+            tasksetinfo.FindLCM();
+
+            txtTotalUtilization.Text = tasksetinfo.TotalUtilization.ToString();
+
+            if (tasksetinfo.Overload == true)
+            {
+                txtOverloaded.Text = "Yes";
+                txtFeasible.Text = "Not feasible by EDF, overloaded.";
+            }
+            else
+            {
+                txtOverloaded.Text = "No";
+                txtFeasible.Text = "Feasible by EDF, not overloaded.";
+            }
+
+            if (tasksetinfo.Guaranteed == true)
+            {
+                txtGuaranteed.Text = "Yes";
+            }
+            else
+            {
+                txtGuaranteed.Text = "No";
+            }
+
+            txtGuaranteedLevel.Text = tasksetinfo.GuaranteedLevel.ToString();
+
+            txtLCM.Text = tasksetinfo.PeriodLCM.ToString();
+
+            if (tasksetinfo.Overload == true)
+            {
+                //Find initial priority
+                tasksetinfo.FindPriorityLCM();
+                tasksetinfo.BuildTimeline();
+                if (methods.EDF(tasksetinfo) == false)
+                {
+                    for (int i = 0; i < tasksetinfo.Timeline.Length; i++)
+                    {
+                        if (tasksetinfo.Timeline.Intervals[i].Missed == true)
+                        {
+                            txtFeasible.Text = "Not feasible by EDF, Task " + tasksetinfo.Timeline.Intervals[i].TaskNumber +
+                                " missed its deadline at Time " + tasksetinfo.Timeline.Intervals[i].Time + ".";
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    txtFeasible.Text = "Feasible by EDF, verified by testing up to LCM of Periods of Tasks";
+                }
+            }
+
+            cmdTestEDF.Enabled = false;
+            cmdTestRMS.Enabled = true;
         }
     }
 }
