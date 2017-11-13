@@ -25,9 +25,9 @@ namespace RMS_by_LCM_Scheduler
 
         }
 
-        public void SetTaskInfo(double number, double period, double execution)
+        public void SetTaskInfo( double period, double execution)
         {
-            this.Number = number;
+            //this.Number = number;
             this.Period = period;
             this.Execution = execution;
             this.Utilization = Math.Round((execution / period), 2);

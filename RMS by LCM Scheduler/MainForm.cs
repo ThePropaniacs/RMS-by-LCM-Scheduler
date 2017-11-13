@@ -49,14 +49,27 @@ namespace RMS_by_LCM_Scheduler
                 Count = 0
             };
 
-            TasksInfoForm tasksinfoform = new TasksInfoForm(this);
-            tasksinfoform.Show();
+            //TasksInfoForm tasksinfoform = new TasksInfoForm(this);
+            //tasksinfoform.Show();
 
-            while (tasksetinfo.Count < tasksetinfo.NumTasks)
+            foreach(var task in tasksetinfo.Tasks)
             {
-                tasksinfoform = new TasksInfoForm(this);
-                tasksinfoform.Show();
+                TasksInfoForm tasksinfoform = new TasksInfoForm(task);
+                if (tasksinfoform.ShowDialog() == DialogResult.OK)
+                {
+                    
+                };
             }
+
+            cmdTest.Enabled = true;
+
+            //while (tasksetinfo.Count < tasksetinfo.NumTasks)
+            //{
+            //    TasksInfoForm tasksinfoform = new TasksInfoForm(this);
+            //    if (tasksinfoform.ShowDialog() == DialogResult.OK) {
+
+            //    };
+            //}
 
             cmdRandom.Enabled = false;
             cmdGo.Enabled = false;

@@ -34,7 +34,10 @@ namespace RMS_by_LCM_Scheduler
             this.Tasks = new Task[Convert.ToInt32(numtasks)];
             for (int i = 0; i < numtasks; i++)
             {
-                this.Tasks[i] = new Task();
+                this.Tasks[i] = new Task
+                {
+                    Number = i + 1
+                };
             }
             this.GuaranteedLevel = Math.Round((numtasks * (Math.Pow(2d, (1d / numtasks)) - 1d)), 2);
         }

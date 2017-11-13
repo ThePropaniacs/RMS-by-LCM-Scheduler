@@ -12,23 +12,24 @@ namespace RMS_by_LCM_Scheduler
 {
     public partial class TasksInfoForm : Form
     {
-        private int count;
+        //private int count;
 
-        private MainForm main;
+        private Task task;
 
         static Random random = new Random();
 
-        public TasksInfoForm(MainForm m)
+        public TasksInfoForm(Task t)
         {
-            this.main = m;
+            this.task = t;
             InitializeComponent();
-            main.tasksetinfo.Count++;
-            count = main.tasksetinfo.Count;
+            //task.tasksetinfo.Count++;
+            //count = task.tasksetinfo.Count;
         }
 
         private void TasksInfoForm_Load(object sender, EventArgs e)
         {
-            lblTitle.Text = "Task " + count.ToString();
+            //lblTitle.Text = "Task " + count.ToString();
+            lblTitle.Text = "Task" + task.Number.ToString();
         }
 
         private void cmdRandom_Click(object sender, EventArgs e)
@@ -56,14 +57,16 @@ namespace RMS_by_LCM_Scheduler
             double.TryParse(txtPeriod.Text, out period);
             double.TryParse(txtExecution.Text, out execution);
 
-            main.tasksetinfo.Tasks[(count - 1)].SetTaskInfo(count, period, execution);
+            task.SetTaskInfo(period, execution);
+            //main.tasksetinfo.Tasks[(count - 1)].SetTaskInfo(count, period, execution);
 
-            main.tasksetinfo.Count--;
-            if (main.tasksetinfo.Count == 0)
-            {
-                main.Enable_cmdTest();
-            }
+            //main.tasksetinfo.Count--;
+            //if (main.tasksetinfo.Count == 0)
+            //{
+                //main.Enable_cmdTest();
+            //}
 
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
