@@ -140,7 +140,7 @@ namespace RMS_by_LCM_Scheduler
             if (tasksetinfo.Overload == true)
             {
                 txtOverloaded.Text = "Yes";
-                txtFeasible.Text = "Not feasible by RMS, overloaded.";
+                //txtFeasible.Text = "Not feasible by RMS, overloaded.";
             }
             else
             {
@@ -150,7 +150,7 @@ namespace RMS_by_LCM_Scheduler
             if (tasksetinfo.Guaranteed == true)
             {
                 txtGuaranteed.Text = "Yes";
-                txtFeasible.Text = "Feasible by RMS, guaranteed by LCM.";
+                //txtFeasible.Text = "Feasible by RMS, guaranteed by LCM.";
             }
             else
             {
@@ -161,7 +161,7 @@ namespace RMS_by_LCM_Scheduler
 
             txtLCM.Text = tasksetinfo.PeriodLCM.ToString();
 
-            if (tasksetinfo.Overload == false && tasksetinfo.Guaranteed == false)
+            //if (tasksetinfo.Overload == false && tasksetinfo.Guaranteed == false)
             {
                 tasksetinfo.FindPriorityLCM();
                 tasksetinfo.BuildTimeline();
@@ -184,7 +184,7 @@ namespace RMS_by_LCM_Scheduler
             }
 
             cmdTestRMS.Enabled = false;
-            cmdTestEDF.Enabled = true;
+            cmdTestEDF.Enabled = false;
         }
 
         private void cmdTestEDF_Click(object sender, EventArgs e)
